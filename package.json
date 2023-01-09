@@ -1,21 +1,51 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "nutrio",
+  "version": "0.15.0",
+  "author": {
+    "name": "Faisal Hanif"
+  },
+  "icon": "./public/logo512.png",
+  "license": "MIT",
   "private": true,
+  "main": "./public/main.js",
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.4",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^8.0.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "electron-dev": "electron .",
+    "electron-pack": "electron-builder --win -c.extraMetadata.main=build/main.js"
+  },
+  "build": {
+    "appId": "com.faisalhnf.nutrio",
+    "productName": "Nutrio",
+    "copyright": "©️ 2021 Faisal Hanif",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "./public"
+    },
+    "win": {
+      "icon": "./public/logo512.png"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +64,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "9",
+    "electron": "^14.0.0",
+    "electron-builder": "^22.11.7",
+    "postcss": "7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
